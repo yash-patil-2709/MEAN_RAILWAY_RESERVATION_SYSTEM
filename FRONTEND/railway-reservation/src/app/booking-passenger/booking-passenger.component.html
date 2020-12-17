@@ -1,0 +1,107 @@
+<div>
+  <div class="text-center">
+  <h2>YOU ARE BOOKING THE SEATS IN THE FOLLOWING TRAIN:</h2>
+  <div class="table-responsive">
+  <table class="table">
+    <!-- <thead>
+      <tr>
+        <th>Train No.</th>
+        <th>Train Name</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Seat Availability</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+      </tr>
+    </thead> -->
+    <tbody>
+      <tr *ngFor="let tr of trainResultName">
+        <td>{{tr.trainno}}</td>
+        <td>{{tr.trainname}}</td>
+        <td>{{tr.source}}</td>
+        <td>{{tr.destination}}</td>
+        <td>{{tr.seatavail}}</td>
+        <td>{{tr.depttime}}</td>
+        <td>{{tr.arrivename}}</td>
+        <td>{{tr.fare | currency:'INR':'symbol'}}</td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</div>
+
+<hr/>
+
+<div>
+  <mat-vertical-stepper class="card">
+  <mat-step class="step" label="Fill Passenger Details" [editable]="isEditable">
+    <form #passengerForm="ngForm" class="form">
+
+      <div class="form-group">
+      <input #passName="ngModel" [class.is-invalid]="passName.invalid && passName.touched" [(ngModel)]="passDetails.passName" type="text" name="passName" class="form-control rounded-0" placeholder="Enter Passenger Names separated by comma" required>
+      <small class="text-danger" [class.d-none]="passName.valid || passName.untouched">Passenger Name is required</small>
+      </div>
+
+      <div class="form-group">
+        <input #passNo="ngModel" [class.is-invalid]="passNo.invalid && passNo.touched" [(ngModel)]="passDetails.passNo" type="number" name="passNo" class="form-control rounded-0" placeholder="Enter Passenger No:" required>
+        <small class="text-danger" [class.d-none]="passNo.valid || passNo.untouched">Passenger Number is required</small>
+      </div>
+
+      <div class="form-group">
+        <input  type="email" name="Email" class="form-control rounded-0" placeholder="Enter Email on which you want to receive booking mail" required>
+      </div>
+    </form>
+    <button mat-raised-button [disabled]="passengerForm.form.invalid" color="primary" matStepperNext (click)="store(passDetails.passName,passDetails.passNo)">Next</button>
+  </mat-step>
+
+  <mat-step label="View Ticket Summary" [editable]="isEditable">
+    <!-- <p>Ticket Summary</p> -->
+    <div>
+      <h3>Passenger Names : {{passDetails.passName}}</h3>
+    </div>
+    <div>
+      <h3>No. Of  Passengers: {{passDetails.passNo}}</h3>
+    </div>
+    <div class="container">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Train No.</th>
+              <th>Train Name</th>
+              <th>Source</th>
+              <th>Destination</th>
+              <th>Departure Time</th>
+              <th>Arrival Time</th>
+              <th>Total Fare</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tr of trainResultName">
+              <td>{{tr.trainno}}</td>
+              <td>{{tr.trainname}}</td>
+              <td>{{tr.source}}</td>
+              <td>{{tr.destination}}</td>
+              <td>{{tr.depttime}}</td>
+              <td>{{tr.arrivename}}</td>
+              <td>{{tr.fare*(passDetails.passNo) | currency:'INR':'symbol'}}</td>
+              </tr>
+          </tbody>
+          </table>
+        </div>
+    </div>
+    <div>
+      <button mat-raised-button  color="primary" matStepperPrevious>Back</button>
+      <button mat-button  matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+  <mat-step label="Payment" [editable]="isEditable">
+     <h3><i>Pay your ticket using razorpay</i></h3>
+    <button (click)="payWithRazor()" class="btn waves-effect waves-light" matStepperNext type="submit" name="action">PAY WITH RAZORPAY
+      <i class="material-icons right">send</i>
+    </button>
+  </mat-step>
+</mat-vertical-stepper>
+</div>

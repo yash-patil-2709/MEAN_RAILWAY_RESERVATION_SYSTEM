@@ -1,0 +1,34 @@
+<div class="text-center">
+  <h2>VIEW RESULTS</h2>
+  <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Train No.</th>
+        <th>Train Name</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Seat Availability</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tr of trainResult">
+        <td>{{tr.trainno}}</td>
+        <td>{{tr.trainname}}</td>
+        <td>{{tr.source}}</td>
+        <td>{{tr.destination}}</td>
+        <td>{{tr.seatavail}}</td>
+        <td>{{tr.depttime}}</td>
+        <td>{{tr.arrivename}}</td>
+        <td>
+            <button type="button" [disabled]="tr.seatavail==0" class="btn btn-primary float-right" (click)="bookNow(tr)">Book</button>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+
+
+</div>

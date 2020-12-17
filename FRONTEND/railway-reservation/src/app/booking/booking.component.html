@@ -1,0 +1,48 @@
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="booking-box">
+      <img [src]="bookImg" class="book">
+      <h1>BOOK YOUR TICKET</h1>
+      <form class="form" #findForm="ngForm" (ngSubmit)="onSubmit(findForm.value)">
+        <div class="form-group">
+          <p>Source</p>
+        <input type="text" #source="ngModel" name="source" [class.is-invalid]="source.invalid && source.touched" class="form-control rounded-0"  placeholder="Enter source"  [matAutocomplete]="auto" required [(ngModel)]='trainSearch.source' ngModel>
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of options1" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+        <small class="text-danger" [class.d-none]="source.valid || source.untouched"><b>Source is compulsory</b></small>
+
+        </div>
+        <div>
+          <a class="material-icons action-btn" style="font-size: 40px" (click)="swap(trainSearch.source,trainSearch.destination)">swap_vertical_circle</a>
+        </div>
+        <div class="form-group">
+        <p>Destination</p>
+        <input type="text" #destination="ngModel" name="destination" [class.is-invalid]="destination.invalid && destination.touched" class="form-control rounded-0" placeholder="Enter destination"  [matAutocomplete]="auto" required [(ngModel)]='trainSearch.destination' ngModel>
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of options2" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+        <small class="text-danger" [class.d-none]="destination.valid || destination.untouched"><b>Destination is compulsory</b></small><br>
+        <small class="text-danger" *ngIf="this.isSearchError"><b>Source and Destination cannot be same</b></small>
+        </div>
+
+        <p>Date of Journey</p>
+        <input type="date" name="journey" required min="2020-12-18" required>
+        <small class="text-danger" *ngIf="!this.isTrainFound"><b>Source and Destination not found</b></small>
+        <!-- <input type="submit" [disabled]="findForm.form.invalid"  name="submit" value="Find Trains"/> -->
+        <button type="submit" class="btn btn-primary" [disabled]="findForm.form.invalid" name="submit" id="findTrain">Find Trains</button>
+      </form>
+    </div>
+
+
+  </body>
+</html>

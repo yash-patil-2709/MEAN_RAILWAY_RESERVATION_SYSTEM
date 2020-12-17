@@ -1,0 +1,50 @@
+<div class="text-center">
+  <h2>TRAIN SCHEDULE</h2>
+  <hr>
+
+
+    <div class="card-body">
+      <form class="form" #trainForm="ngForm">
+  <div class="form-group" class="text-left">
+    <label for="exampleInputEmail1">TRAIN NAME</label>
+    <input type="text"  class="form-control" [(ngModel)]="name" name="trainname" placeholder="Enter train name" ngModel required>
+
+  </div>
+  <button type="submit"  class="btn btn-primary" (click)="search(this.name)" [disabled]="trainForm.form.invalid">Submit</button><br><br>
+  <small class="text-danger" *ngIf="this.ifEmpty"><b>Train not found</b></small>
+    </form>
+
+    </div>
+<hr>
+<div class="table-responsive">
+  <table class="table" *ngIf="ifClick && !ifEmpty">
+    <thead>
+      <tr>
+        <th>Train No.</th>
+        <th>Train Name</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Seat Availability</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tr of trainResultName">
+        <td>{{tr.trainno}}</td>
+        <td>{{tr.trainname}}</td>
+        <td>{{tr.source}}</td>
+        <td>{{tr.destination}}</td>
+        <td>{{tr.seatavail}}</td>
+        <td>{{tr.depttime}}</td>
+        <td>{{tr.arrivename}}</td>
+        <!-- <td>
+            <button type="button" class="btn btn-primary float-right" (click)="bookNow(tr)">Book</button>
+          </td> -->
+        </tr>
+    </tbody>
+  </table>
+  </div>
+
+
+</div>

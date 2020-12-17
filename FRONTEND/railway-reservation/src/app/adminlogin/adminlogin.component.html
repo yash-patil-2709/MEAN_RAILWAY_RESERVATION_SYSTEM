@@ -1,0 +1,41 @@
+<div class="py-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <span class="anchor" id="formLogin"></span>
+
+
+      <div class="card rounded-0">
+        <div class="card-header">
+          <h3 class="mb-0">ADMIN LOGIN</h3>
+        </div>
+        <div class="card-body">
+          <form class="form" #adminForm="ngForm" *ngIf='!submitted'  novalidate>
+            <div class="form-group">
+              <label for="uname1">Admin name</label>
+              <input type="text" #adminname="ngModel" [class.is-invalid]="adminname.invalid && adminname.touched" class="form-control rounded-0" [(ngModel)]="loginAdminData.adminname" name="adminname" required>
+              <small class="text-danger" [class.d-none]="adminname.valid || adminname.untouched">Admin name is required</small>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" #password="ngModel" [class.is-invalid]="password.invalid && password.touched" class="form-control rounded-0" [(ngModel)]="loginAdminData.password" name="password" required>
+              <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required</small>
+            </div>
+
+            <div>
+              <small class="text-danger" *ngIf="isLoginError">{{errorMsg1}}</small>
+              <small class="text-danger" *ngIf="isLoginError">{{errorMsg2}}</small><br>
+              <a href="/login">Are you a user? Login here</a>
+              <button type="button" [disabled]="adminForm.form.invalid" (click)="loginAdmin()" class="btn btn-primary float-right">Login</button>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+</div>

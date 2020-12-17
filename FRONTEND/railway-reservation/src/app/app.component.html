@@ -1,0 +1,97 @@
+<div class="main">
+
+  <nav class="navbar navbar-expand navbar bg-dark">
+    <a class="navbar-brand" href="#"><img src="assets/images/train-logo-removebg-preview.png" alt="TRAIN LOGO" height="50" width="50"></a>
+    <a class="navbar-brand" href="#">INDIAN RAILWAYS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+         <li class="nav-item">
+          <a class="nav-link" routerLink="/trains" routerLinkActive="active">TRAIN SCHEDULE</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/pnr" routerLinkActive="active">PNR SEARCH</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/myBookings" routerLinkActive="active">MY BOOKINGS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/places" routerLinkActive="active">PLACES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/hotels" routerLinkActive="active">STAYS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active">CONTACT US</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+          <a class="nav-link"  *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active">LOGIN</a>
+          <a class="nav-link"  *ngIf="!_authService.loggedIn()" routerLink="/register" routerLinkActive="active">REGISTER</a>
+          <a class="nav-link"  *ngIf="!_authService.loggedIn()" routerLink="/admin" routerLinkActive="active">ADMIN LOGIN</a>
+          <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logout()">LOGOUT</a>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+  <footer class="page-footer">
+            <div class="container">
+              <div class="row">
+	<div class="alert alert-danger alert-dismissible" role="alert">
+  <button type="button" onclick="this.parentNode.parentNode.removeChild(this.parentNode);" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+  <strong><i class="fa fa-warning"></i>IMPORTANT:</strong> <marquee><p style="font-family: Impact; font-size: 15pt">Stay protected from COVID-19. No carelessness until there is a cure. Users are also requested to carry their e-tickets while travelling.</p></marquee>
+</div>
+	</div>
+              <div class="row" class='text-center'>
+                <!-- <div class="col l6 s12">
+                  <h5 class="black-text">Footer Content</h5>
+                  <p class="black-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div> -->
+                <div class="col l4 offset-l2 s12">
+                  <ul>
+                    <li><a href="/">HOME</a></li>
+                    </ul>
+                    <ul>
+                    <li><a  href="/trains">TRAIN SCHEDULE</a></li>
+                    </ul>
+                    <ul>
+                    <li><a  href="/places">PLACES</a></li>
+                    </ul>
+                    <ul>
+                    <li><a  href="/hotels">STAYS</a></li>
+                    </ul>
+                    <ul>
+                    <li><a href="/contact">CONTACT US</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="footer-copyright">
+              <div class="container">
+               <div class="text-center">
+                 Copyright © 2020 - www.irctc.co.in. All Rights Reserved
+
+               </div>
+               <br><br>
+
+
+              <div class="text-center">
+                <a class="black-text text-lighten-4 right" href="https://www.facebook.com/centralrailwayindia/" target="_blank" class="fa fa-facebook"></a>
+                <a class="black-text text-lighten-4 right" href="https://twitter.com/railwayseva?lang=en" target="_blank" class="fa fa-twitter"></a>
+                <a class="black-text text-lighten-4 right" href="https://www.instagram.com/railminindia/?hl=en" target="_blank" class="fa fa-instagram"></a>
+                <a class="black-text text-lighten-4 right" href="https://www.google.com/search?rlz=1C1CHBF_enIN844IN844&ei=fLvUX_DxEv-b4-EPoI2IwAQ&q=railways+&oq=railways+&gs_lcp=CgZwc3ktYWIQAzIICAAQyQMQkQIyBQgAEJECMgIIADICCAAyAggAMgIIADIKCAAQsQMQgwEQCjICCAAyAggAMgIIADoECAAQRzoJCAAQyQMQFhAeOgYIABAWEB46BQgAEMkDOggIABAWEAoQHlDVhAFY044BYLyRAWgAcAJ4AYABswGIAeEJkgEDMC44mAEAoAEBqgEHZ3dzLXdpesgBCMABAQ&sclient=psy-ab&ved=0ahUKEwjwn7bOvMjtAhX_zTgGHaAGAkgQ4dUDCA0&uact=5" target="_blank" class="fa fa-google"></a>
+                <a class="black-text text-lighten-4 right" href="https://in.linkedin.com/company/indian-railways-new" target="_blank"class="fa fa-linkedin"></a>
+                <a class="black-text text-lighten-4 right" href="https://www.youtube.com/watch?v=WDVwui5m9ss" target="_blank" class="fa fa-youtube"></a>
+              </div>
+              </div>
+              </div>
+          </footer>
+
+</div>

@@ -1,0 +1,120 @@
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content black-text">
+        <div class="row">
+          <div class="col s9">
+            <form #adminForm="ngForm" (ngSubmit)="onSubmit(adminForm)">
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="adminService.selectedAdmin._id">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="number" name="trainno" #name="ngModel" [(ngModel)]="adminService.selectedAdmin.trainno"  required>
+                  <label>TRAIN NUMBER :
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="trainname" #name="ngModel" [(ngModel)]="adminService.selectedAdmin.trainname"  required>
+                  <label>TRAIN NAME :</label>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="source" #name="ngModel" [(ngModel)]="adminService.selectedAdmin.source"  required>
+                  <label>SOURCE :</label>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="destination" #name="ngModel" [(ngModel)]="adminService.selectedAdmin.destination"  required>
+                  <label>DESTINATION :</label>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="number" name="seatavail" #name="ngModel" [(ngModel)]="adminService.selectedAdmin.seatavail"  required>
+                  <label>SEAT AVAILABILITY:</label>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="depttime" #name="ngModel" [(ngModel)]="adminService.selectedAdmin.depttime"  required>
+                  <label>DEPARTURE TIME :</label>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="arrivename" #name="ngModel" [(ngModel)]="adminService.selectedAdmin.arrivename"  required>
+                  <label>ARRIVAL TIME :</label>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="number" name="fare" #name="ngModel" [(ngModel)]="adminService.selectedAdmin.fare"  required>
+                  <label>FARE:</label>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <button class="btn btn-custom right" type="button" (click)="resetForm(adminForm)">Reset</button>
+                  <button class="btn btn-custom right" type="submit" [disabled]="!adminForm.valid">Submit</button><br><br>
+                  <button class="btn btn-custom right" type="button" (click)="viewAllBookings()">View All Bookings</button>
+                </div>
+              </div>
+
+              <!-- <div class="row">
+                <div class="input-field col s12">
+                  <button class="btn btn-custom right" type="button" (click)="viewAllBookings()">View All Bookings</button>
+                </div>
+              </div> -->
+
+            </form>
+          </div>
+          <div class="col s7">
+              <table class="responsive-table highlight">
+                  <thead>
+                    <tr>
+                      <th>TNAME</th>
+                      <th>SOURCE</th>
+                      <th>DESTINATION</th>
+                      <th>AVAIL</th>
+                      <th>DTIME</th>
+                      <th>ATIME</th>
+                      <th>FARE</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tr *ngFor="let ad of adminService.admins">
+                    <td>{{ad.trainname}}</td>
+                    <td>{{ad.source}}</td>
+                    <td>{{ad.destination}}</td>
+                    <td>{{ad.seatavail}}</td>
+                    <td>{{ad.depttime}}</td>
+                    <td>{{ad.arrivename}}</td>
+                    <td>{{ad.fare}}</td>
+                    <td>
+                        <a class="action-btn" (click)="onEdit(ad)">
+                          <i class="material-icons">edit</i>
+                        </a>
+                        <a class="action-btn" (click)="onDelete(ad.trainname,adminForm)">
+                          <i class="material-icons">delete</i>
+                        </a>
+                      </td>
+                  </tr>
+                </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

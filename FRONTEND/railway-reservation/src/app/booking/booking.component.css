@@ -1,0 +1,106 @@
+body{
+  margin: 0;
+  padding: 0;
+  background: url('/assets/images/train1.jpg');
+  height: 660px;
+  background-size: cover;
+  background-position: center;
+  font-family: sans-serif;
+}
+
+.booking-box{
+  width: 350px;
+  height: 560px;
+  background:rgba(0,0,0,0.5);
+  color: #fff;
+  top: 60%;
+  left: 65%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+}
+
+.book{
+  width:50px;
+  height: -50px;
+  border-radius: 50%;
+  position: absolute;
+  top: -40px;
+  left: 145px;
+  left: calc(50% -50px);
+}
+
+h1{
+  margin: 0px;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.booking.box p{
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.booking-box input{
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.booking-box input[type="text"],input[type="date"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background :transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+
+/* .booking-box input[type="submit"]{
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #1c8adb;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+
+}
+
+.booking-box input[type="submit"]:hover{
+  cursor: pointer;
+  background: #39dc79;
+  color: #000;
+} */
+
+ #findTrain{
+  width:100%;
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #1c8adb;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+
+}
+
+ #findTrain:hover{
+  width:100%;
+  cursor: pointer;
+  background: #39dc79;
+  color: #000;
+}
+
+.booking-box a{
+  text-decoration: none;
+  font-size: 14px;
+  color: #fff;
+}
+
+.booking-box a:hover{
+  color: #39dc79;
+}

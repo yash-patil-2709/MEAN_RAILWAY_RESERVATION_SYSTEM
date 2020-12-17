@@ -1,0 +1,44 @@
+<div class="text-center">
+  <h2>PNR CHECK</h2>
+  <hr>
+
+  <div class="card-body">
+    <form class="form" #trainForm="ngForm">
+<div class="form-group" class="text-left">
+  <label for="exampleInputEmail1">PNR NUMBER</label>
+  <input type="number"   class="form-control" [(ngModel)]="pnrno" name="pnrno" placeholder="Enter pnr number" ngModel required>
+
+</div>
+  </form>
+  <button type="submit" class="btn btn-primary" (click)="checkPnr(this.pnrno)" [disabled]="trainForm.form.invalid">Submit</button><br><br>
+  <small class="text-danger" *ngIf="this.ifEmpty"><b>THIS PNR DOES NOT EXIST</b></small>
+  </div>
+<hr>
+
+<div class="table-responsive">
+<table class="table" *ngIf="ifClick && !ifEmpty">
+  <thead>
+    <tr>
+      <th>PNR no.</th>
+      <th>Train No.</th>
+      <th>Train Name</th>
+      <th>Source</th>
+      <th>Destination</th>
+      <th>Departure Time</th>
+      <th>Arrival Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{pnrResult.pnr}}</td>
+      <td>{{pnrResult.train.trainNo}}</td>
+      <td>{{pnrResult.train.trainName}}</td>
+      <td>{{pnrResult.train.Source}}</td>
+      <td>{{pnrResult.train.Destination}}</td>
+      <td>{{pnrResult.train.deptTime}}</td>
+      <td>{{pnrResult.train.arriveTime}}</td>
+      </tr>
+  </tbody>
+</table>
+</div>
+  </div>

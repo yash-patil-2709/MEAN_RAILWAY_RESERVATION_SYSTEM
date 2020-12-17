@@ -1,0 +1,109 @@
+<div class="py-5">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <span class="anchor" id="formLogin"></span>
+
+
+        <div class="card rounded-0">
+          <div class="card-header">
+            <h3 class="mb-0">REGISTER</h3>
+          </div>
+          <div class="card-body">
+            <form class="form" #userForm="ngForm" *ngIf='!submitted'  novalidate>
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" #username="ngModel" [class.is-invalid]="username.invalid && username.touched" [(ngModel)]="registerUserData.username" name="username"  class="form-control rounded-0" required>
+                <small class="text-danger" [class.d-none]="username.valid || username.untouched">Username is required</small>
+                <small class="text-danger" *ngIf="isLoginError">{{errorMsg}}</small>
+              </div>
+              <div class="form-group">
+               <label>Password</label>
+               <input type="password" #password="ngModel"  [class.is-invalid]="password.invalid && password.touched" [(ngModel)]="registerUserData.password" name="password" class="form-control rounded-0"  required>
+               <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required</small>
+             </div>
+
+             <div class="form-group">
+               <label for="fname"> First Name</label>
+               <input type="text" #fname="ngModel" [(ngModel)]="registerUserData.fname" name="fname" class="form-control rounded-0" required>
+               <small class="text-danger" [class.d-none]="fname.valid || fname.untouched">First Name is required</small>
+             </div>
+             <div class="form-group">
+               <label for="mname"> Middle Name</label>
+               <input type="text"  #mname="ngModel" [(ngModel)]="registerUserData.mname" name="mname" class="form-control rounded-0">
+             </div>
+             <div class="form-group">
+               <label for="lname"> Last Name</label>
+               <input type="text" #lname="ngModel" [(ngModel)]="registerUserData.lname" name="lname" class="form-control rounded-0" required>
+               <small class="text-danger" [class.d-none]="lname.valid || lname.untouched">Last Name is required</small>
+             </div>
+
+
+
+
+           <div class="form-group">
+             <label for="dob" class="col-10 col-form-label">Date of Birth</label>
+             <div class="col-20">
+               <input class="form-control" #dob="ngModel" type="date" [(ngModel)]="registerUserData.dob" name="dob" max="2020-12-15">
+             </div>
+           </div>
+
+           <div class="form-group row">
+               <label for="phone" class="col-10 col-form-label">Phone No.</label>
+               <div class="col-12">
+                 <input class="form-control" required #phone="ngModel" type="tel"   [(ngModel)]="registerUserData.phone" name="phone"  [class.is-invalid]="phone.invalid && phone.touched">
+                 <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">Phone number is required</small>
+               </div>
+             </div>
+
+             <div class="form-group row">
+               <label for="flatno" class="col-2 col-form-label">FlatNo.</label>
+               <div class="col-10">
+                 <input class="form-control" #flatno="ngModel" type="number" name="flatno" [(ngModel)]="registerUserData.flatno">
+               </div>
+             </div>
+
+             <div class="form-group">
+               <label for="societyname">Society Name</label>
+               <input type="text" #societyname="ngModel" [(ngModel)]="registerUserData.societyname" name="societyname" class="form-control rounded-0" required>
+             </div>
+
+             <div class="form-group row">
+               <label for="pincode" class="col-2 col-form-label">Pcode</label>
+               <div class="col-10">
+                 <input class="form-control" #pincode="ngModel" type="number" [(ngModel)]="registerUserData.pincode" name="pincode" required>
+                 <small class="text-danger" [class.d-none]="pincode.valid || pincode.untouched">Pincode is compulsory</small>
+               </div>
+             </div>
+
+             <div class="form-group">
+               <label for="city">City</label>
+               <input type="text" #city="ngModel" [(ngModel)]="registerUserData.city" name="city" class="form-control rounded-0" required>
+               <small class="text-danger" [class.d-none]="city.valid || city.untouched">City is compulsory</small>
+             </div>
+
+             <div class="form-group">
+               <label for="state">State</label>
+               <input type="text" #state="ngModel" [(ngModel)]="registerUserData.state" name="state" class="form-control rounded-0" required>
+               <small class="text-danger" [class.d-none]="state.valid || state.untouched">State is compulsory</small>
+             </div>
+
+             <div class="form-group">
+               <label for="country">Country</label>
+               <input type="text" disabled #country="ngModel" [(ngModel)]="registerUserData.country" name="country" class="form-control rounded-0" required>
+             </div>
+
+             <div>
+               <a href="/login">Not a New User? Login here</a>
+                <button type="button" [disabled]="userForm.form.invalid"  (click)="registerUser()" class="btn btn-primary float-right">Register</button>
+             </div>
+            </form>
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+  </div>

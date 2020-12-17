@@ -1,0 +1,40 @@
+<div class="py-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <span class="anchor" id="formLogin"></span>
+
+
+      <div class="card rounded-0">
+        <div class="card-header">
+          <h3 class="mb-0">LOGIN</h3>
+        </div>
+        <div class="card-body">
+          <form class="form" #loginForm="ngForm" *ngIf='!submitted' novalidate>
+            <div class="form-group">
+              <label for="uname1">Username</label>
+              <input type="text" #username="ngModel" [class.is-invalid]="username.invalid && username.touched" class="form-control rounded-0" [(ngModel)]="loginUserData.username" name="username" required>
+              <small class="text-danger" [class.d-none]="username.valid || username.untouched">Username is compulsory</small>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" #password="ngModel" [class.is-invalid]="password.invalid && password.touched" class="form-control rounded-0" [(ngModel)]="loginUserData.password" name="password" required>
+              <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required</small>
+            </div>
+            <div>
+              <small class="text-danger" *ngIf="isLoginError">{{errorMsg1}}</small>
+              <small class="text-danger" *ngIf="isLoginError">{{errorMsg2}}</small><br>
+              <a href="/register">New User? Register here</a>
+                <button type="button" [disabled]="loginForm.form.invalid" (click)="loginUser()" class="btn btn-primary float-right">Login</button>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+</div>

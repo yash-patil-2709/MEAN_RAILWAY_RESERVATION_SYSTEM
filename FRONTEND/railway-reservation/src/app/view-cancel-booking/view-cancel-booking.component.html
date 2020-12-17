@@ -1,0 +1,35 @@
+<div class="text-center">
+  <h2>YOUR BOOKINGS</h2>
+  <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>PNR no.</th>
+        <th>Train No.</th>
+        <th>Train Name</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let br of bookingResult">
+        <td>{{br.pnr}}</td>
+        <td>{{br.train.trainNo}}</td>
+        <td>{{br.train.trainName}}</td>
+        <td>{{br.train.Source}}</td>
+        <td>{{br.train.Destination}}</td>
+        <td>{{br.train.deptTime}}</td>
+        <td>{{br.train.arriveTime}}</td>
+        <td>
+            <button type="button" class="btn btn-primary float-right" (click)="cancel(br.pnr)">CANCEL</button>
+            <button type="button" class="btn btn-primary float-right" (click)="view(br.train.trainName)">VIEW TICKET</button>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+
+
+</div>
