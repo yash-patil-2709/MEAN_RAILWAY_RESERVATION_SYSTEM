@@ -13,8 +13,8 @@ let transporter = nodemailer.createTransport({
 
 //step 2
 let mailOptions = {
-  from: 'yash.railway.cs@gmail.com',
-  to: 'yash.railway.cs@gmail.com',
+  from: 'blah@gmail.com',
+  to: 'blah@gmail.com',
   subject: 'Booking Done Successfully via INDIAN RAILWAYS',
   text: "FOLLOW SAFETY NORMS WHILE TRAVELLING, DON'T FORGET TO GET YOUR TICKET"
 };
