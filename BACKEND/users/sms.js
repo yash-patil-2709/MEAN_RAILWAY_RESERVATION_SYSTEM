@@ -10,7 +10,7 @@ const sample = 'hello';
 //   .create({
 //      body: 'Registration Done Successfully on Indian Railways. Thank you for choosing us.',
 //      from: '+12059648213',
-//      to: '+919967476145'
+//      to: '+919087654321'
 //    })
 //   .then((message) => console.log(message))
 //   .catch((err) => console.log(err));
@@ -24,7 +24,7 @@ const sendSms = () => {
   .create({
      body: 'Registration Done Successfully on Indian Railways. Thank you for choosing us.',
            from: '+12059648213',
-           to: '+919967476145'
+           to: '+919087654321'
    })
   .then(message => console.log(message.sid))
   .catch((err) => console.log(err));;
